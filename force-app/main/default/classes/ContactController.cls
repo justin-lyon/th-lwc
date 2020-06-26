@@ -1,14 +1,16 @@
 public with sharing class ContactController {
 
-	@AuraEnabled
+	@AuraEnabled(cacheable=true)
 	public static List<Contact> getContacts () {
-		return [
-			SELECT Id,
-				FirstName,
-				LastName,
-				Email
-			FROM Contact
-			ORDER BY LastName
-			LIMIT 200];
+		throw new AuraHandledException('Forced Exception.');
+		// return [
+		// 	SELECT Id,
+		// 		FirstName,
+		// 		LastName,
+		// 		Email
+		// 	FROM Contact
+		// 	WITH SECURITY_ENFORCED
+		// 	ORDER BY LastName
+		// 	LIMIT 200];
 	}
 }
