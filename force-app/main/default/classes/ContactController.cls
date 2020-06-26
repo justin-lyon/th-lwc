@@ -8,7 +8,6 @@ public with sharing class ContactController {
 				LastName,
 				Email
 			FROM Contact
-			WITH SECURITY_ENFORCED
 			ORDER BY LastName
 			LIMIT 200];
 	}
